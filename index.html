@@ -1,184 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
-    <meta charset="UTF-8">
-    <title>Demo Yard — Scrap Metal Buyers</title>
-    <meta name="description" content="Get top dollar for scrap metal in Demo City. Fast service, honest weights, and instant payment.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph -->
-    <meta property="og:title" content="Demo Yard — Scrap Metal Buyers">
-    <meta property="og:description" content="Get top dollar for scrap metal in Demo City. Fast service, honest weights, and instant payment.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourgithubusername.github.io/Standard-Launch-Demo/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1612036789862-8a13b1de9261?auto=format&fit=crop&w=1200&q=60">
-    <style>
-        /* Simple reset */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; color: #222; }
-        a { color: #0065ff; text-decoration: none; }
-        header { background: url('https://images.unsplash.com/photo-1577939225034-7a60ae2691f4?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat; color: #fff; padding: 4rem 1rem; text-align: center; }
-        header h1 { font-size: 2.5rem; margin-bottom: .5rem; text-shadow: 0 2px 4px rgba(0,0,0,.6);}
-        header p { font-size: 1.2rem; margin-bottom: 1.5rem; text-shadow: 0 1px 3px rgba(0,0,0,.6);}
-        .btn { display: inline-block; background:#ffb400; color:#000; padding:.75rem 1.25rem; border-radius:4px; font-weight:bold;}
-        nav { background:#fff; position: sticky; top:0; z-index:999; border-bottom:1px solid #eee;}
-        nav ul { list-style:none; display:flex; justify-content:center; flex-wrap:wrap; }
-        nav li { margin:.5rem 1rem;}
-        nav a { color:#222; font-weight:bold;}
-        section { padding:3rem 1rem; max-width:1100px; margin:0 auto; }
-        h2 { font-size:2rem; margin-bottom:1.5rem; color:#0a4f70;}
-        .grid { display:grid; gap:1.5rem;}
-        .materials{ grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); text-align:center;}
-        .materials img{ width:80px; height:80px; object-fit:cover; margin-bottom:.5rem; border-radius:50%;}
-        .why { grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
-        .why div{ background:#f7f7f7; padding:1rem; border-radius:6px;}
-        iframe { width:100%; height:350px; border:0; }
-        form { display:grid; gap:.75rem; max-width:600px; margin:0 auto;}
-        input, textarea { padding:.65rem; border:1px solid #ccc; border-radius:4px; font-size:1rem;}
-        button { background:#0065ff; color:#fff; border:none; padding:.75rem; border-radius:4px; font-size:1rem; cursor:pointer;}
-        footer { background:#0a4f70; color:#fff; text-align:center; padding:1.5rem 1rem; }
-        footer a { color:#fff; text-decoration:underline;}
-        @media (min-width:768px){
-            header h1{font-size:3.5rem;}
-            .hero-flex{display:flex;justify-content:center; gap:2rem; align-items:center;}
-            .hero-flex img{max-width:320px; border-radius:8px;}
-        }
-    </style>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ScrapYard",
-        "name": "Demo Yard",
-        "url": "https://yourgithubusername.github.io/Standard-Launch-Demo/",
-        "logo": "https://images.unsplash.com/photo-1612036789862-8a13b1de9261?auto=format&fit=crop&w=400&q=60",
-        "image": "https://images.unsplash.com/photo-1577939225034-7a60ae2691f4?auto=format&fit=crop&w=1600&q=60",
-        "telephone": "+1-555-123-4567",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "123 Demo Rd",
-            "addressLocality": "Demo City",
-            "addressRegion": "TX",
-            "postalCode": "77001",
-            "addressCountry": "US"
-        },
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-                "opens": "08:00",
-                "closes": "17:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "08:00",
-                "closes": "13:00"
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Demo Yard | Scrap Metal Buyers</title>
+  <meta name="description" content="Get top dollar for scrap metal in Demo City. Fast service, honest weights, and instant payment."/>
+  <meta property="og:title" content="Demo Yard — Scrap Metal Buyers"/>
+  <meta property="og:description" content="Fast, fair, and reliable scrap services in Demo City."/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1612036789862-8a13b1de9261?auto=format&fit=crop&w=1200&q=60"/>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.png" sizes="any"/>
+  <link rel="mask-icon" href="assets/logo.svg" color="#D75E02"/>
+  <link rel="apple-touch-icon" href="assets/logo.png"/>
+  <!-- Tailwind 3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+          colors: {
+            brand: {
+              orange:   '#D75E02',     /* OSHA orange accent   */
+              steel:    '#5E6367',     /* muted steel gray     */
+              charcoal: '#2B2B2B'      /* dark base            */
             }
-        ],
-        "sameAs": []
+          }
+        }
+      }
     }
-    </script>
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Nav & brand underline animation + AOS utility -->
+  <style>
+    :root{ --color-links:#D75E02; }
+    header nav a, #mobileMenu a:not(.bg-yellow-500){ position:relative; text-decoration:none; }
+    header nav a:hover{ color:currentColor!important; }
+    header nav a.text-yellow-400:hover{ color:var(--color-links)!important; }
+    header nav a::after, #mobileMenu a:not(.bg-yellow-500)::after{
+      content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+      background-color:var(--color-links); transition:width .3s ease;
+    }
+    header nav a:hover::after, #mobileMenu a:not(.bg-yellow-500):hover::after{ width:100%; }
+
+    .site-title{ position:relative; display:inline-block; }
+    .site-title::after{
+      content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+      background-color:var(--color-links); transition:width .3s ease;
+    }
+    a:hover .site-title::after{ width:100%; }
+
+    [data-aos]{ opacity:0; transform:translateY(20px); }
+    .aos-active{ opacity:1; transform:translateY(0); transition:opacity .6s ease-out,transform .6s ease-out; }
+  </style>
+
+  <!-- JSON‑LD (unchanged) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScrapYard",
+    "name": "Demo Yard",
+    "url": "https://yourgithubusername.github.io/Standard-Launch-Demo/",
+    "logo": "https://images.unsplash.com/photo-1612036789862-8a13b1de9261?auto=format&fit=crop&w=400&q=60",
+    "image": "https://images.unsplash.com/photo-1577939225034-7a60ae2691f4?auto=format&fit=crop&w=1600&q=60",
+    "telephone": "+1-555-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Demo Rd",
+      "addressLocality": "Demo City",
+      "addressRegion": "TX",
+      "postalCode": "77001",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00" },
+      { "@type": "OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"13:00" }
+    ],
+    "sameAs": []
+  }
+  </script>
 </head>
-<body>
 
-<nav>
-    <ul>
-        <li><a href="#materials">What We Buy</a></li>
-        <li><a href="#why">Why Choose Us</a></li>
-        <li><a href="#visit">Visit Us</a></li>
-        <li><a href="#contact">Quote</a></li>
-    </ul>
-</nav>
+<body class="font-sans text-brand-charcoal antialiased bg-white overflow-x-hidden">
 
-<header>
-    <h1>Top Dollar for Scrap Metal</h1>
-    <p>Fast, fair, and reliable service in Demo City.</p>
-    <a href="#contact" class="btn">Request a Quote</a>
+<!-- ── Header ───────────────────────────────────────────────-->
+<header class="bg-white fixed top-0 inset-x-0 w-full z-50 shadow-sm">
+  <div class="max-w-7xl mx-auto relative flex items-center justify-between px-6 py-3">
+    <a href="#top" class="flex items-center gap-2">
+      <img src="assets/logo.svg" alt="Demo Yard logo" class="h-6 w-6 md:h-8 md:w-8"/>
+      <span class="site-title text-xl md:text-2xl font-black tracking-tight">
+        <span class="text-brand-orange">Demo</span> Yard
+      </span>
+    </a>
+    <nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-sm font-medium">
+      <a href="#materials" class="hover:text-brand-orange">What We Buy</a>
+      <a href="#why"       class="hover:text-brand-orange">Why Us</a>
+      <a href="#visit"     class="hover:text-brand-orange">Visit</a>
+      <a href="#contact"   class="hover:text-brand-orange">Quote</a>
+    </nav>
+    <a href="#contact"
+       class="inline-block rounded-md bg-brand-orange px-5 py-2 text-white font-semibold shadow hover:opacity-90 transition">
+      Get Quote
+    </a>
+  </div>
 </header>
 
-<section id="materials">
-    <h2>Materials We Buy</h2>
-    <div class="grid materials">
-        <div>
-            <img src="https://images.unsplash.com/photo-1625842531975-9b320b8e3a74?auto=format&fit=crop&w=200&q=60" alt="Copper">
-            <p>Copper & Brass</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1606046604972-77b6519d2b34?auto=format&fit=crop&w=200&q=60" alt="Aluminum">
-            <p>Aluminum</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1597297443336-6f2d14a3dbfc?auto=format&fit=crop&w=200&q=60" alt="Steel">
-            <p>Steel & Iron</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1549565162-df27422614c9?auto=format&fit=crop&w=200&q=60" alt="Stainless">
-            <p>Stainless Steel</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1581090657098-58e83cff09aa?auto=format&fit=crop&w=200&q=60" alt="Catalytic Converters">
-            <p>Catalytic Converters</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1581090469201-8a3527c0ad1a?auto=format&fit=crop&w=200&q=60" alt="Batteries">
-            <p>E-Scrap & Batteries</p>
-        </div>
+<!-- ── Hero ─────────────────────────────────────────────────-->
+<section id="top" class="scroll-mt-16 min-h-screen flex items-center justify-center text-center relative isolate pt-16">
+  <div class="absolute inset-0 -z-10 bg-[url('https://images.unsplash.com/photo-1577939225034-7a60ae2691f4?auto=format&fit=crop&w=1600&q=60')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 -z-10 bg-black/80"></div>
+
+  <div class="max-w-3xl mx-auto px-6">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white drop-shadow-lg">
+      Top Dollar for <span class="text-brand-orange">Scrap Metal</span>
+    </h1>
+    <p class="mt-5 text-lg sm:text-xl text-gray-100">
+      Fast, fair, and reliable service in Demo City.
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#contact"
+         class="rounded-md bg-brand-orange px-8 py-3 text-white font-semibold shadow hover:opacity-90 transition">
+        Request Quote
+      </a>
+      <a href="#materials"
+         class="rounded-md bg-white px-8 py-3 text-brand-orange font-semibold shadow-lg hover:bg-gray-100 transition">
+        What We Buy
+      </a>
     </div>
+  </div>
 </section>
 
-<section id="why">
-    <h2>Why Choose Demo Yard?</h2>
-    <div class="grid why">
-        <div>
-            <h3>Honest Weights</h3>
-            <p>State-certified scales audited quarterly so you know every pound counts.</p>
-        </div>
-        <div>
-            <h3>Instant Payment</h3>
-            <p>Cash, check, or ACH before you leave the scale deck—no waiting.</p>
-        </div>
-        <div>
-            <h3>Fast Turnaround</h3>
-            <p>Average onsite time: under 10 minutes thanks to streamlined lanes & unloading crews.</p>
-        </div>
-        <div>
-            <h3>Industrial Expertise</h3>
-            <p>Container service & demolition backed by 25+ years combined experience.</p>
-        </div>
+<!-- ── Materials ────────────────────────────────────────────-->
+<section id="materials" class="scroll-mt-16 py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Materials We Buy</h2>
+    <p class="mx-auto max-w-2xl text-brand-steel text-lg">
+      From household scrap to industrial loads—if it’s metal, we’ll weigh it and pay it.
+    </p>
+  </div>
+
+  <div class="mt-16 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-6xl mx-auto px-6">
+    <!-- card -->
+    <div class="flex flex-col items-center text-center" data-aos>
+      <img src="https://images.unsplash.com/photo-1625842531975-9b320b8e3a74?auto=format&fit=crop&w=200&q=60" alt="Copper" class="w-20 h-20 rounded-full object-cover mb-3">
+      <p class="font-medium">Copper & Brass</p>
     </div>
+    <div class="flex flex-col items-center text-center" data-aos data-aos-delay="50">
+      <img src="https://images.unsplash.com/photo-1606046604972-77b6519d2b34?auto=format&fit=crop&w=200&q=60" alt="Aluminum" class="w-20 h-20 rounded-full object-cover mb-3">
+      <p class="font-medium">Aluminum</p>
+    </div>
+    <div class="flex flex-col items-center text-center" data-aos data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1597297443336-6f2d14a3dbfc?auto=format&fit=crop&w=200&q=60" alt="Steel" class="w-20 h-20 rounded-full object-cover mb-3">
+      <p class="font-medium">Steel & Iron</p>
+    </div>
+    <div class="flex flex-col items-center text-center" data-aos data-aos-delay="150">
+      <img src="https://images.unsplash.com/photo-1549565162-df27422614c9?auto=format&fit=crop&w=200&q=60" alt="Stainless" class="w-20 h-20 rounded-full object-cover mb-3">
+      <p class="font-medium">Stainless Steel</p>
+    </div>
+    <div class="flex flex-col items-center text-center" data-aos data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1581090657098-58e83cff09aa?auto=format&fit=crop&w=200&q=60" alt="Cat Converters" class="w-20 h-20 rounded-full object-cover mb-3">
+      <p class="font-medium">Catalytic Converters</p>
+    </div>
+    <div class="flex flex-col items-center text-center" data-aos data-aos-delay="250">
+      <img src="https://images.unsplash.com/photo-1581090469201-8a3527c0ad1a?auto=format&fit=crop&w=200&q=60" alt="Batteries" class="w-20 h-20 rounded-full object-cover mb-3">
+      <p class="font-medium">E‑Scrap &amp; Batteries</p>
+    </div>
+  </div>
 </section>
 
-<section id="visit">
-    <h2>Visit Our Yard</h2>
-    <p><strong>Hours:</strong> Mon–Fri 8 am–5 pm · Sat 8 am–1 pm<br>
-    <strong>Address:</strong> 123 Demo Rd, Demo City, TX 77001<br>
-    <strong>Phone:</strong> <a href="tel:+15551234567">555‑123‑4567</a></p>
-    <iframe loading="lazy"
-        src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Houston+TX">
-    </iframe>
+<!-- ── Why Us ───────────────────────────────────────────────-->
+<section id="why" class="scroll-mt-16 py-20 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Why Choose Demo Yard?</h2>
+  </div>
+
+  <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto px-6">
+    <div class="rounded-xl bg-white border border-brand-steel/10 shadow-sm p-8" data-aos>
+      <h3 class="font-semibold text-lg mb-2">Honest Weights</h3>
+      <p class="text-brand-steel">State‑certified scales audited quarterly so every pound counts.</p>
+    </div>
+    <div class="rounded-xl bg-white border border-brand-steel/10 shadow-sm p-8" data-aos data-aos-delay="100">
+      <h3 class="font-semibold text-lg mb-2">Instant Payment</h3>
+      <p class="text-brand-steel">Cash, check, or ACH before you leave the scale deck—no waiting.</p>
+    </div>
+    <div class="rounded-xl bg-white border border-brand-steel/10 shadow-sm p-8" data-aos data-aos-delay="200">
+      <h3 class="font-semibold text-lg mb-2">Fast Turnaround</h3>
+      <p class="text-brand-steel">Average onsite time: under 10 minutes thanks to streamlined lanes & crews.</p>
+    </div>
+    <div class="rounded-xl bg-white border border-brand-steel/10 shadow-sm p-8" data-aos data-aos-delay="300">
+      <h3 class="font-semibold text-lg mb-2">Industrial Expertise</h3>
+      <p class="text-brand-steel">Container service & demolition backed by 25+ years combined experience.</p>
+    </div>
+  </div>
 </section>
 
-<section id="contact">
-    <h2>Get a Fast Quote</h2>
-    <p>Drop your details and we’ll email you back within one business hour.</p>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <textarea name="message" rows="4" placeholder="Tell us about your material…"></textarea>
-        <!-- Protect against bots -->
-        <input type="text" name="_gotcha" style="display:none">
-        <button type="submit">Send Quote Request</button>
+<!-- ── Visit ───────────────────────────────────────────────-->
+<section id="visit" class="scroll-mt-16 py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Visit Our Yard</h2>
+    <p class="text-brand-steel text-base md:text-sm">
+      <strong>Hours:</strong> Mon–Fri 8 am–5 pm · Sat 8 am–1 pm<br/>
+      <strong>Address:</strong> 123 Demo Rd, Demo City, TX 77001<br/>
+      <strong>Phone:</strong> <a href="tel:+15551234567" class="underline">555‑123‑4567</a>
+    </p>
+    <iframe class="mt-10 w-full h-[350px] border-0 rounded-lg shadow"
+            loading="lazy"
+            src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Demo+City+TX"></iframe>
+  </div>
+</section>
+
+<!-- ── Contact ─────────────────────────────────────────────-->
+<section id="contact" class="scroll-mt-16 py-20 bg-gray-100">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold">Get a Fast Quote</h2>
+    <p class="mt-2 text-brand-steel text-base md:text-sm">
+      Drop your details and we'll email you back within one business hour.
+    </p>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST"
+          class="mt-10 grid gap-6">
+      <input type="text" name="name" required placeholder="Name"
+             class="w-full rounded-md px-4 py-3 bg-white border border-brand-steel/20 text-brand-charcoal"/>
+      <input type="tel" name="phone" required placeholder="Phone"
+             class="w-full rounded-md px-4 py-3 bg-white border border-brand-steel/20 text-brand-charcoal"/>
+      <input type="email" name="email" required placeholder="Email"
+             class="w-full rounded-md px-4 py-3 bg-white border border-brand-steel/20 text-brand-charcoal"/>
+      <textarea name="message" rows="4" placeholder="Tell us about your material…"
+                class="w-full rounded-md px-4 py-3 bg-white border border-brand-steel/20 text-brand-charcoal"></textarea>
+      <!-- honeypot -->
+      <input type="text" name="_gotcha" class="hidden" aria-hidden="true">
+      <button type="submit"
+              class="rounded-md bg-brand-orange px-8 py-3 font-semibold text-white shadow hover:opacity-90 transition">
+        Send →
+      </button>
     </form>
-    <p style="margin-top:1rem; font-size:.875rem;">By submitting you agree to our <a href="#">privacy policy</a>. No spam—ever.</p>
+    <p class="mt-4 text-xs text-brand-steel">
+      By submitting you agree to our <a href="#" class="underline">privacy policy</a>. No spam—ever.
+    </p>
+  </div>
 </section>
 
-<footer>
-    <p>&copy; {year} Demo Yard · Built by <a href="https://scrapyardsites.com" target="_blank">Scrapyard Sites</a></p>
+<!-- ── Footer ──────────────────────────────────────────────-->
+<footer class="bg-white py-8 text-center text-xs text-gray-400">
+  <p>© <span id="year"></span> Demo Yard · Built by <a href="https://scrapyardsites.com" target="_blank" class="underline">Scrapyard Sites</a></p>
 </footer>
 
+<!-- Scripts -->
 <script>
-    // Insert current year in footer
-    document.querySelector('footer p').innerHTML = document.querySelector('footer p').innerHTML.replace('{year}', new Date().getFullYear());
+  /* dynamic year */
+  document.getElementById('year').textContent = new Date().getFullYear();
+  /* AOS minimal (intersection‑observer) */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const aosEls = document.querySelectorAll('[data-aos]');
+  if (aosEls.length && !prefersReduced) {
+    const obs = new IntersectionObserver((entries,o)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('aos-active'); o.unobserve(e.target);} });
+    },{threshold:0.1});
+    aosEls.forEach(el=>obs.observe(el));
+  } else { aosEls.forEach(el=>el.classList.add('aos-active')); }
 </script>
 </body>
 </html>
