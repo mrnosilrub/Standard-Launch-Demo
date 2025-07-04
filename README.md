@@ -2,11 +2,8 @@
 
 This demo includes a single `index.html` page. The markup expects a handful of JPG and PNG files to live in an `assets/` directory:
 
-- `assets/apple-touch-icon.png` – iOS home screen icon (`<link rel="apple-touch-icon">`).
-- `assets/favicon-32.png` and `assets/favicon-16.png` – PNG favicons referenced in `<link rel="icon">` tags.
-- `assets/favicon.ico` – fallback favicon for older browsers.
-- `assets/logo.png` – used in structured data and other image references.
-- `assets/logo.svg` – used as the mask icon and for the logo image in the navigation bar.
+- `assets/logo.svg` – used as the primary favicon, mask icon, and navigation bar logo.
+- `assets/logo.png` – fallback favicon and used in structured data and other image references.
 - `assets/og-image.jpg` – preview image for Open Graph metadata.
 - `assets/hero-bg.jpg` – hero section background image.
 - `assets/copper.jpg` – copper & brass card image.
