@@ -371,6 +371,17 @@
     rotateQuote();
     setInterval(rotateQuote, 4000);
   }
+  /* dynamic scroll offset for fixed header */
+  function updateOffsets(){
+    const header = document.querySelector('header');
+    if(!header) return;
+    const offset = header.offsetHeight;
+    document.querySelectorAll('section[id]').forEach(el=>{
+      el.style.scrollMarginTop = offset + 'px';
+    });
+  }
+  updateOffsets();
+  window.addEventListener('resize', updateOffsets);
 </script>
 </body>
 </html>
