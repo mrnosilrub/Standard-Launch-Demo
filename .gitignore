@@ -1,0 +1,4 @@
+# Ignore common image files
+assets/*.jpg
+assets/*.png
+assets/*.svg
