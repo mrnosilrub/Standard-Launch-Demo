@@ -132,6 +132,14 @@
     </div>
   </div>
 </section>
+<!-- Trust-Badge Strip -->
+<section class="bg-white py-4 shadow-inner">
+  <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 text-sm font-semibold text-brand-steel">
+    <span class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i>ISRI Member</span>
+    <span class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i>BBB A+</span>
+    <span class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i>X Years Accident-Free</span>
+  </div>
+</section>
 <!-- -- How It Works ------------------------------ -->
 <section id="how" class="scroll-mt-16 py-20 bg-gray-100">
   <div class="mx-auto max-w-6xl px-6 text-center">
@@ -161,9 +169,16 @@
     </div>
   </div>
 </section>
-<!-- -- Testimonials ------------------------------ -->
-<section class="bg-brand-charcoal text-white py-4 text-center">
-  <p class="text-sm"><span class="text-yellow-400">★★★★★</span> "Fast service and honest prices!" — Local Contractor</p>
+<!-- Commercial Services Call-out -->
+<section class="py-12 bg-brand-charcoal text-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-2xl font-bold mb-4">Commercial Services</h2>
+    <ul class="space-y-2 text-sm">
+      <li>Roll-off containers (20–40 yd)</li>
+      <li>Demo scrap removal</li>
+      <li>Scheduled plant pickups</li>
+    </ul>
+  </div>
 </section>
 
 <!-- ── Materials ────────────────────────────────────────────-->
@@ -203,6 +218,27 @@
     </div>
   </div>
 </section>
+<!-- Before-You-Arrive Checklist -->
+<section id="checklist" class="py-16 bg-gray-100">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-2xl font-bold mb-4 text-center">Before You Arrive</h2>
+    <ul class="list-disc list-inside text-sm text-brand-steel space-y-2">
+      <li>ID required</li>
+      <li>PPE tips</li>
+      <li>Prohibited items (Freon tanks, sealed drums, ammo)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Micro-Testimonials Carousel -->
+<section class="bg-brand-charcoal text-white py-4 text-center overflow-hidden">
+  <p id="testimonialText" class="text-sm h-6 flex items-center justify-center"></p>
+</section>
+
+<!-- Sustainability / Community Impact Banner -->
+<section class="py-8 bg-green-50 text-center">
+  <p class="text-sm text-brand-steel">Recycled X million lbs in 2024—saved Y tons of CO₂. Shout-out to local school scrap drives.</p>
+</section>
 
 <!-- ── Visit ───────────────────────────────────────────────-->
 <section id="visit" class="scroll-mt-16 py-20 bg-white">
@@ -224,6 +260,29 @@
     <p class="mt-2 text-brand-steel text-base md:text-sm">
       Drop your details and we'll email you back within one business hour.
     </p>
+<!-- FAQ Accordion -->
+<div id="faq" class="mt-10 text-left">
+  <details class="border-b py-2">
+    <summary class="cursor-pointer font-medium">What prices do you pay?</summary>
+    <p class="mt-2 text-sm text-brand-steel">Prices change daily—call for today's rates.</p>
+  </details>
+  <details class="border-b py-2">
+    <summary class="cursor-pointer font-medium">What ID do I need?</summary>
+    <p class="mt-2 text-sm text-brand-steel">Bring a current driver's license or state ID.</p>
+  </details>
+  <details class="border-b py-2">
+    <summary class="cursor-pointer font-medium">Do you accept appliances?</summary>
+    <p class="mt-2 text-sm text-brand-steel">Yes, but refrigerants must be evacuated first.</p>
+  </details>
+  <details class="border-b py-2">
+    <summary class="cursor-pointer font-medium">Can I watch the scale?</summary>
+    <p class="mt-2 text-sm text-brand-steel">Absolutely—we welcome customers to observe.</p>
+  </details>
+  <details class="py-2">
+    <summary class="cursor-pointer font-medium">How do you pay me?</summary>
+    <p class="mt-2 text-sm text-brand-steel">Choose cash, check or ACH on the spot.</p>
+  </details>
+</div>
 
     <form action="https://formspree.io/f/your-form-id" method="POST"
           class="mt-10 grid gap-6">
@@ -265,6 +324,21 @@
     },{threshold:0.1});
     aosEls.forEach(el=>obs.observe(el));
   } else { aosEls.forEach(el=>el.classList.add('aos-active')); }
+  /* micro testimonial carousel */
+  const quotes = [
+  '<span class="text-yellow-400">★★★★★</span> "Fair prices and friendly staff!"',
+  '<span class="text-yellow-400">★★★★★</span> "Quick in and out at the scales."',
+  '<span class="text-yellow-400">★★★★★</span> "Best scrapyard in town!"',
+  ];
+  let qi = 0;
+  function rotateQuote(){
+    document.getElementById("testimonialText").innerHTML = quotes[qi];
+    qi = (qi + 1) % quotes.length;
+  }
+  if(document.getElementById("testimonialText")){
+    rotateQuote();
+    setInterval(rotateQuote, 4000);
+  }
 </script>
 </body>
 </html>
